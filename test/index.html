@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+  
+    <title>Page Title</title>
+    
+    <script src='main.js'></script>
+</head>
+<body>
+    <span id="data"></span>
+    <script>
+        function show(str){
+            const xmlhttp = new XMLHttpRequest;
+            xmlhttp.onload = function(){
+                document.getElementById("data").innerHTML=this.responseText;
+            }
+            xmlhttp.open("get","data.php?ex="+str);
+            xmlhttp.send();
+            
+        }
+    </script>
+    <form action="">
+        <select name="file" id="" onchange="show(this.value)">
+            <option value="1">text file 1</option>
+            <option value="2">text file 2</option>
+        </select>
+    </form>
+</body>
+</html>
